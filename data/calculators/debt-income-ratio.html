@@ -1,0 +1,59 @@
+<div class="calculator_steps row">
+    <button class="active col-xs-6" id="DI-step-1">STEP 1 - Calculate</button>
+    <button class="col-xs-6" disabled="disabled" id="DI-step-2">STEP 2 - Result &amp; Suggestion</button>
+</div>
+<div class="tab-content" style="margin-left: -15px;">
+    <div class="tab-pane fade in active" id="DebtIncomeResults" role="tabpanel"
+        style="padding: 25px 15px;background: #e8e2d6;">
+        <p>Debt to Income Ratio (DTI) reflects how much of your gross monthly income is used towards your monthly debt
+            payments. Just enter your total debt payments and annual income in order to calculate your DTI and check
+            your financial health.</p>
+        <form id="DI-Form">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Monthly Debt Repayment</h3>
+                    <div class="input-group mar-b-20"><span class="input-group-addon"><b>$</b></span> <input
+                            class="form-control" id="MonthlyRentonDI" name="monthly-rent"
+                            placeholder="Monthly Mortgage or Rent" required="" type="text"></div>
+                    <div class="input-group mar-b-20"><span class="input-group-addon"><b>$</b></span> <input
+                            class="form-control" id="MonthlyCreditCardPayment" name="monthly-credit-card-payment"
+                            placeholder="Minimum Monthly Credit Card Payments" required="" type="text"></div>
+                    <div class="input-group mar-b-20"><span class="input-group-addon"><b>$</b></span> <input
+                            class="form-control" id="CarLoanPayment" name="car-loan-payment"
+                            placeholder="Monthly Car Loan Payments" type="text"></div>
+                    <div class="input-group mar-b-20"><span class="input-group-addon"><b>$</b></span> <input
+                            class="form-control" id="OtherLoanObligation" name="other-loan-obligation"
+                            placeholder="Other Loan Obligation" type="text"></div>
+                </div>
+                <div class="col-md-6" id="annualform">
+                    <h3>Annual Income</h3>
+                    <div class="input-group mar-b-20"><span class="input-group-addon"><b>$</b></span> <input
+                            class="form-control" id="GrossSalary" name="gross-salary" placeholder="Annual Gross Salary"
+                            type="text"></div>
+                    <div class="input-group mar-b-20"><span class="input-group-addon"><b>$</b></span> <input
+                            class="form-control" id="BonusOvertime" name="bonus-overtime"
+                            placeholder="Bonus and Overtime" type="text"></div>
+                    <div class="input-group mar-b-20"><span class="input-group-addon"><b>$</b></span> <input
+                            class="form-control" id="OtherIncome" name="other-income" placeholder="Other Income"
+                            type="text"></div>
+                    <div class="input-group mar-b-20"><span class="input-group-addon"><b>$</b></span> <input
+                            class="form-control" id="AlimonyReceived" name="alimony-received"
+                            placeholder="Alimony Received" type="text"></div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <div class="border-bottom-grey mar-b-10">&nbsp;</div><input class="btn btn-success btn-lg"
+                        id="CalculateDI" name="Submit" type="button" value="Calculate">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="loading-demo">&nbsp;</div>
+    <div class="unvisited tab-pane fade" id="2nd-tab" role="tabpanel">&nbsp;</div>
+    <div class="unvisited tab-pane fade" id="3rd-tab" role="tabpanel">&nbsp;</div>
+</div>
+<style type="text/css">
+    .inactiveLink {
+        pointer-events: none;
+        cursor: default;
+    }
+</style>

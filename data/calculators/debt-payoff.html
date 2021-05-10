@@ -1,0 +1,132 @@
+<div class="sample-calculator-container">
+    <!-- <h1>Letter content</h1> -->
+
+    <div id='intro_text'>
+
+    </div>
+    <p class="font-size-28 pad-t-20" id="details_you_need_to_give">Details you need to give into the calculator to get
+        your debt payoff schedule.</p>
+    <div class="container-fluid">
+        <div class="calculator_steps row">
+            <button id="First_Step" class="active col-xs-4"><span></span> Step 1</button><button id="Second_Step"
+                class="col-xs-4" disabled="disabled"><span></span> Step 2</button><button id="Third_Step"
+                class="col-xs-4" disabled="disabled"><span></span> Step 3</button>
+        </div>
+        <div id="FirstStep" style="display:block;padding: 25px 0;background: #e8e2d6;" class="row">
+            <div class="col-md-12 pad-t-10">
+                <form id="debtPayOffCalculator" method="post">
+
+                    <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-sm-12">
+                        <div class="input-group mar-b-20">
+                            <span class="input-group-addon"><b>$</b></span>
+                            <input type="text" name="totalDebtAmount" id="TotalDebt" class="form-control"
+                                value="<?php echo $total_debt;?>" placeholder="What is your total debt amount?">
+                        </div>
+                        <div class="input-group mar-b-20">
+                            <span class="input-group-addon"><b>$</b></span>
+                            <input type="text" placeholder="How much can you pay every month? " name="monthlyPayment"
+                                id="totalMonthlyPayment" class="form-control" value="<?php echo $monthly_payment;?>">
+                        </div>
+                        <div class="input-group mar-b-20">
+                            <input type="submit" value="Check how much you save" name="Check how much you save"
+                                class="btn btn-success btn-lg" id="check_how_much_save">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-md-12 colr-grey pad-b-10 font-size-13">
+                <p class="mar-b-20">
+                    <strong>Note:</strong><br />
+                    <span class="colr-red">*</span> We are a California based consumer law firm offering legal services
+                    across the United States. A law firm can always offer you far better savings on debt relief programs
+                    than Do-It-Yourself (DIY) methods.<br />
+                    <span class="colr-red">**</span> This debt payoff calculator is intended for demonstration only and
+                    makes use of a certain interest rate to calculate.
+                </p>
+            </div>
+        </div>
+
+        <div id="SecondStep" style="display:none;background: #e8e2d6;" class="row">
+            <div class="col-md-1"><button id="backbutton" style="display:none;" class="btn btn-default mar-5"><span
+                        class="glyphicon glyphicon-chevron-left"></span> Back</button></div>
+            <div id="getData" class="col-md-10">
+            </div>
+            <div class="text-center col-md-12 pad-tb-20">
+                <button id="gotostep3" class="btn btn-success btn-lg">Request for No-obligation Free Counseling <span
+                        class="glyphicon glyphicon-chevron-right"></span></button>
+            </div>
+            <div class="col-md-12 colr-grey pad-b-10 font-size-13">
+                <p class="mar-b-20">
+                    <strong>Note:</strong><br />
+                    <span class="colr-red">*</span> We are a California based consumer law firm offering legal services
+                    across the United States. A law firm can always offer you far better savings on debt relief programs
+                    than Do-It-Yourself (DIY) methods.<br />
+                    <span class="colr-red">**</span> This debt payoff calculator is intended for demonstration only and
+                    makes use of a certain interest rate to calculate.
+                    <span class="colr-red">***</span> As per survey, on an average a consumer can save maximum 40% when
+                    they try to settle debt themselves.
+                </p>
+            </div>
+        </div>
+        <div id="ThirdStep" style="display:none" ;>
+            <div id="thirdstepData"></div>
+        </div>
+
+        <h2 class="mar-t-20">Q: Why should you use this calculator to pay off debt?</h2>
+        <p>When you’re in debt and want to dissolve it, you should research and find out the right path that leads you
+            toward debt freedom. Otherwise, all your efforts will go in vain. You’ll work hard but without any
+            direction.<br>
+            <b>The debt payoff calculator shows you the right path to repay debt and save money. It gives results on the
+                basis of realistic figures. So you can easily calculate how much you can save and when you can expect to
+                be debt free.</b> You don’t need to believe the sales pitch of the debt relief companies. You can check
+            out the facts with the help of the free online debt payoff calculator.<br><br>
+            When used properly, the <b>debt payoff calculator can help you to:</b></p>
+        <ul class="list-style-none">
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> Get a free no-obligation
+                counseling session</li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> Choose the best way to
+                pay off debt</li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> Save lots of money on
+                your debts</li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> Plan your financial life
+                and achieve your goals</li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> Avoid getting scammed
+            </li>
+        </ul>
+        <h2>Q: How does the bill payoff calculator work?</h2>
+        <p>The bill payoff calculator helps you to find out <b>how to repay bills in 3 easy steps:</b><br>
+            In the <b>first step, you’ve to enter the following details into the calculator:</b></p>
+        <ul class="list-style-none">
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> Your total debt amount.
+            </li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> How much you can afford
+                to pay every month.</li>
+        </ul>
+        <p>
+            Once done, click on the <b>‘check how much you can save button.’</b><br>
+            In the <b>second step, you’ll get the result. The bill payoff calculator will give you these details:</b>
+        </p>
+        <ul class="list-style-none">
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> Your total savings when
+                you settle debts yourself.</li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> Your total savings when
+                OVLG settles your debts.</li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> Your payoff date.</li>
+        </ul>
+        <p>In the <b>third step,</b> you can <b>request for instant non-obligation free debt counseling to lower your
+                monthly payments.</b></p>
+        <h2> Q: When should you use a debt payoff calculator?</h2>
+        <ul class="list-style-none">
+            The best time to use a bill payoff calculator is when:
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> You have a debt problem
+                and want the right solution.</li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> You’re confused if you
+                should settle debts yourself or through OVLG.</li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> You want to know how
+                much you should pay to get out of debt quickly.</li>
+            <li><span class="ul-li-round"><i class="fa fa-check" aria-hidden="true"></i></span> You want to organize a
+                payment plan.</li>
+        </ul>
+    </div>
+</div>

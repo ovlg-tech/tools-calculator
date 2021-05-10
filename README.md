@@ -1,2 +1,2 @@
 # tools-calculator
-All ovlg calculators
+All ovlg sample calculators.

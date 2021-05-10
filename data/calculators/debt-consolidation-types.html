@@ -1,0 +1,131 @@
+<div id="getInformation">
+    <h2>Enter your current debt</h2>
+    <div class="row pad-tb-20 bg-beige mar-tb-10">
+        <div class="col-md-3 col-sm-6 pad-tb-10 text-center"><button class="btn btn-primary"
+                data-target=".bs-example-modal-sm" data-toggle="modal" id="creditcard" name="creditcard"
+                value="Add credit card debts">Add credit card debts</button><input class="form-control mar-t-10"
+                disabled="disabled" id="TotalCreditCardBal" name="TotalCreditCardBal" size="16" type="text"
+                value="5000"></div>
+        <div class="col-md-3 col-sm-6 pad-tb-10 text-center"><button class="btn btn-primary"
+                data-target=".bs-example-modal-sm-2" data-toggle="modal" id="totalinsurance" name="installmentloans"
+                value="Add Installment loans">Add Installment loans</button><input class="form-control mar-t-10"
+                disabled="disabled" id="TotalLoanInsBalance" name="TotalLoanInsBalance" size="16" type="text"
+                value="5000"></div>
+        <div class="col-md-3 col-sm-6 pad-tb-10 text-center"><b>Your total debt</b> <b>$</b> <input
+                class="form-control mar-t-10" disabled="disabled" id="TotalDebt" name="TotalDebt" size="12" type="text"
+                value="10000"></div>
+        <div class="col-md-3 col-sm-6 pad-tb-10 text-center"><b>Monthly Payment</b> <b>$</b> <input
+                class="form-control mar-t-10" id="MonthlyPayment_new" name="MonthlyPayment_new" type="text"
+                value="1000"></div>
+    </div>
+    <table class="table table-bordered" id="getDebtType"></table>
+    <form>
+        <div aria-labelledby="myLargeModalLabel" class="modal fade bs-example-modal-sm" id="window" role="dialog"
+            tabindex="-1">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content" id="popup_content">
+                    <div class="modal-header" style="text-align:right;"><button aria-label="Close" class="close"
+                            data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button></div>
+                    <div align="center">
+                        <table cellpadding="0" cellspacing="3" class="table" width="100%">
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">
+                                        <h2>Credit Card Debts</h2>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Card 1</th>
+                                    <td><input class="form-control" id="CreditCardBalance1" name="CreditCardBalance1"
+                                            type="text" value="5000"></td>
+                                </tr>
+                                <tr>
+                                    <th>Card 2</th>
+                                    <td><input class="form-control" id="CreditCardBalance2" name="CreditCardBalance2"
+                                            placeholder="Input amount" type="text" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th>Card 3</th>
+                                    <td><input class="form-control" id="CreditCardBalance3" name="CreditCardBalance3"
+                                            placeholder="Input amount" type="text" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th>Card 4</th>
+                                    <td><input class="form-control" id="CreditCardBalance4" name="CreditCardBalance4"
+                                            placeholder="Input amount" type="text" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th>Other</th>
+                                    <td><input class="form-control" id="CreditCardBalance5" name="CreditCardBalance5"
+                                            placeholder="Input amount" type="text" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="modal-footer"><input id="mode" name="mode" type="hidden"
+                                                value="creditcard"><input class="btn btn-primary" data-dismiss="modal"
+                                                id="totalCredit" name="Submit" type="button" value="OK"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form>
+        <div aria-labelledby="myLargeModalLabel" class="modal fade bs-example-modal-sm-2" id="window1" role="dialog"
+            tabindex="-1">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content" id="popup_content1">
+                    <div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal"
+                            type="button"><span aria-hidden="true">×</span></button></div>
+                    <div align="center">
+                        <table cellpadding="0" cellspacing="3" class="table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <h2>Installment Loans</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Auto 1</b></td>
+                                    <td><input class="form-control" id="Auto1CurrentBalance" name="Auto1CurrentBalance"
+                                            placeholder="Input amount" type="text" value="5000"></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Auto 2</b></td>
+                                    <td><input class="form-control" id="Auto2CurrentBalance" name="Auto2CurrentBalance"
+                                            placeholder="Input amount" type="text" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Boat</b></td>
+                                    <td><input class="form-control" id="BoatCurrentBalance" name="BoatCurrentBalance"
+                                            placeholder="Input amount" type="text" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Personal</b></td>
+                                    <td><input class="form-control" id="PersonalCurrentBalance"
+                                            name="PersonalCurrentBalance" placeholder="Input amount" type="text"
+                                            value=""></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Other</b></td>
+                                    <td><input class="form-control" id="OtherCurrentBalance" name="OtherCurrentBalance"
+                                            placeholder="Input amount" type="text" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="modal-footer"><input id="mode" name="mode" type="hidden"
+                                                value="loan"><input class="btn btn-primary" data-dismiss="modal"
+                                                id="totalIns" name="Submit" type="button" value="OK"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
