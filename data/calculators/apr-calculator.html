@@ -1,0 +1,112 @@
+<div style=" height:97%">
+    <div align="justify" id="AprNewCalculation" style="padding: 25px 15px;background: #e8e2d6;">
+
+
+        <p>The APR is the actual yearly interest rate paid by a borrower, figuring in the points charged to initiate the
+            loan and other costs.</p>
+        <h3>Calculate actual interest rate you are paying due to additional cost of loan</h3>
+
+        <form id="apr_cal">
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-sm-12">
+
+                    <div>
+
+                        <div class="input-group mar-b-20">
+                            <span class="input-group-addon"><b>Principal ($)</b></span>
+                            <input class="form-control" id="principal" name="principal"
+                                placeholder="Amount of money borrowed" required="" size="15" type="text">
+                        </div>
+
+                        <div class="input-group mar-b-20">
+                            <span class="input-group-addon"><b>Additional Cost ($)</b></span>
+                            <input class="form-control" id="AddCost" name="AddCost"
+                                placeholder="Processing fee, bond fee etc" required="" size="15" type="text">
+                        </div>
+
+                        <div class="input-group mar-b-20">
+                            <span class="input-group-addon"><b>Interest Rate * (%)</b></span>
+                            <input autocomplete="off" class="form-control" id="rate" name="rate"
+                                placeholder="Percentage of interest paid annually on principal" required="" size="15"
+                                type="text">
+                        </div>
+
+                        <div class="input-group mar-b-20">
+                            <span class="input-group-addon"><b>No of Months </b></span>
+                            <input class="form-control" id="months" name="months"
+                                placeholder="No. of months over which you will repay this loan" required="" size="15"
+                                type="text">
+                        </div>
+
+
+                        <input id="old_rate" name="old_rate" type="hidden" value="">
+                        <div class=" border-bottom-grey text-center pad-tb-10"><input class="btn btn-success btn-lg"
+                                id="SubmitAPR" name="Submit" type="button" value="Calculate"></div>
+
+                    </div>
+                </div>
+
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background: #FFF;">
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                <table cellpadding="10" cellspacing="5" class="table table-bordered"
+                                    style="display:block;">
+                                    <tbody>
+                                        <tr class="bg-light-grey colr-grey bold">
+                                            <td colspan="2">Here is a short example of how to calculate the APR and see
+                                                how it differs from normal interest rates:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Loan Amount (P) =</td>
+                                            <td>$100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Additional Cost (E) =</td>
+                                            <td>$5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Interest Rate (I) =</td>
+                                            <td>12%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Monthly Interest Rate (r) =</td>
+                                            <td>R/100*12=0.01</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Number of month (n) =</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p class="paragrph">Now, applying Newton-Raphson Method, we get an APR
+                                                    (A) =0.0605*1200=72.60%</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-light-grey">
+                                            <td colspan="2">
+                                                <p>From the above calculation, we see that for a loan amount of
+                                                    <span>$100</span> with <b>12%</b> interest, the APR can be as high
+                                                    as <b>72.60%</b>, depending upon the extra costs and the time taken
+                                                    for repayment.</p>
+                                            </td>
+                                        </tr>
+                                        <!--<tr>
+                                        <td colspan="2" class="BgGray"><p>The calculation is very confusing. The calculator in this page makes that easier and faster.</p></td>
+                                    </tr>-->
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div id="AprNewCalculate">&nbsp;</div>
+</div>

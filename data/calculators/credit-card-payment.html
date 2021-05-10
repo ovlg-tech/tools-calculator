@@ -1,0 +1,85 @@
+<div style="background:#FFF; padding:5px;">
+    <table cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+            <tr>
+                <td>
+                    <form id="creditPayCalculator">
+                        <div style="background:beige;">
+                            <table cellpadding="0" cellspacing="0" class="table" id="t1" name="t1">
+                                <tbody>
+                                    <tr style="background:white;">
+                                        <td colspan="5">
+                                            <div id="errormessage"
+                                                style="text-align:center;color:red; font:normal 11px Verdana; padding-top:5px">
+                                                &nbsp;</div>
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-brown colr-white text-center">
+                                        <td>Credit Card</td>
+                                        <td>Current bal. ($)</td>
+                                        <td>Interest (% p.a)</td>
+                                        <td>Monthly payment ($)</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center"><b>#1</b>
+                                            <div id="star1" style="text-align:center;color:red;float:left;">&nbsp;</div>
+                                        </td>
+                                        <td align="center"><input class="form-control" id="CreditCardBalance1"
+                                                name="CreditCardBalance1" size="15" type="text" value=""></td>
+                                        <td align="center"><input class="form-control" id="CreditCardInterestRate1"
+                                                name="CreditCardInterestRate1" size="15" type="text" value=""></td>
+                                        <td align="center"><input class="form-control" id="CreditCardMonthlyPayments1"
+                                                name="CreditCardMonthlyPayments1" size="15" type="text" value=""></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="bg-brown colr-white" id="adLoan">
+                                <div class="pull-left pad-10" id="moreloan">Have <select id="rowOpt" name="rowOpt">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select></div>
+                                <div class="pull-left pad-10">more loans <input class="btn btn-primary" id="addRows"
+                                        name="addrow" type="button" value="Add"></div>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table><button class="btn btn-primary pull-right" id="printAuth" name="print_button"
+        value="Print amortization sheet">Print amortization sheet</button><strong class="colr-green">Result</strong>
+    <div id="result">&nbsp;</div>
+    <table cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+            <tr>
+                <td style="text-align:right">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <table cellpadding="0" cellspacing="0" width="50%">
+                        <tbody>
+                            <tr>
+                                <td height="34" width="9">&nbsp;</td>
+                                <td class="numbg">&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="background:#f2f2f2;" valign="top">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>&nbsp;<p class="font-size-13"><b>Disclaimer</b>: The Credit Card Payment Calculator is made available to you
+        as a self-help tool. As such, the accuracy of the figures and the applicability of the calculator in regards to
+        your individual situation cannot be guaranteed. Also, the Credit Card Payment Calculator does not include credit
+        balance insurance and other fees which may be optional.</p>
+</div>
