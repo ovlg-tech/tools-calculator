@@ -6,9 +6,9 @@ $(function () {
 
     console.log(calculatorLayout.data('content-file'));
 
-    jQuery.get('layout/head.html', function (data) {
+    /*jQuery.get('layout/head.html', function (data) {
         $("head").append(data);
-    });
+    });*/
 
     setTimeout(function () {
         var includes = $('[data-include]')

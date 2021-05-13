@@ -162,7 +162,7 @@ function calculateIncomeRatio() {
     console.log(999);
     $.ajax({
         type: 'POST',
-        url: 'https://local.ovlg.com/calculators/debt-income-ratio', //https://local.ovlg.com
+        url: window.location.origin + '/calculators/debt-income-ratio', //https://local.ovlg.com
         data: incomeOptions,
         dataType: 'html',
         encode: true,
@@ -303,7 +303,7 @@ function calculateApr() {
 
     $.ajax({
         type: 'POST',
-        url:  'https://local.ovlg.com/calculators/debt-apr-calculators', // https://local.ovlg.com
+        url: window.location.origin + '/calculators/debt-apr-calculators', // https://local.ovlg.com
         data: aprValue,
         crossDomain: true,
         dataType: 'html',
