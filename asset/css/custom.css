@@ -92,6 +92,13 @@ h3, .header-h3 {
 .colr-grey {
     color: #5b5b5b;
 }
+.colr-green {
+    color: #099;
+}
+.font-size-32 {
+    font-size: 1.8em;
+    line-height: 1.8em !important;
+}
 .font-size-14 {
     font-size: 0.78em;
     line-height: 1.3em;

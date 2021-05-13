@@ -14,19 +14,21 @@
         </div>
         <div id="FirstStep" style="display:block;padding: 25px 0;background: #e8e2d6;" class="row">
             <div class="col-md-12 pad-t-10">
-                <form id="debtPayOffCalculator" method="post">
+                <form id="debtPayOffCalculator" method="post" onsubmit="return debtPayOffCalculator();">
 
                     <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-sm-12">
                         <div class="input-group mar-b-20">
                             <span class="input-group-addon"><b>$</b></span>
                             <input type="text" name="totalDebtAmount" id="TotalDebt" class="form-control"
-                                value="<?php echo $total_debt;?>" placeholder="What is your total debt amount?">
+                                value="" placeholder="What is your total debt amount?">
                         </div>
+                        <!-- < php echo $total_debt;?>  -->
                         <div class="input-group mar-b-20">
                             <span class="input-group-addon"><b>$</b></span>
                             <input type="text" placeholder="How much can you pay every month? " name="monthlyPayment"
-                                id="totalMonthlyPayment" class="form-control" value="<?php echo $monthly_payment;?>">
+                                id="totalMonthlyPayment" class="form-control" value="">
                         </div>
+                        <!-- < php echo $monthly_payment;?> -->
                         <div class="input-group mar-b-20">
                             <input type="submit" value="Check how much you save" name="Check how much you save"
                                 class="btn btn-success btn-lg" id="check_how_much_save">
