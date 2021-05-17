@@ -30,6 +30,12 @@ $(function () {
 
 })
 
+
+
+function Fnslideup() {
+    jQuery("html, body").animate({ scrollTop: 0 }, 800);
+}
+
 /*
 $(function () {
     var includes = $('[data-include]')

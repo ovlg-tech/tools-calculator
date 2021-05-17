@@ -60,7 +60,7 @@ h3, .header-h3 {
 }
 
 .ovlg-calculator-banner {
-    background: url(/asset/images/ovlg-calculator-banner.jpg);
+    background: url(/calculators/asset/images/ovlg-calculator-banner.jpg);
     background-position-x: 0%;
     background-position-y: 0%;
     background-repeat: repeat;
@@ -94,6 +94,12 @@ h3, .header-h3 {
 }
 .colr-green {
     color: #099;
+}
+.colr-white {
+    color: #fff !important;
+}
+.bg-dark-50 {
+    background: rgba(0, 0, 0, 0.5);
 }
 .font-size-32 {
     font-size: 1.8em;
