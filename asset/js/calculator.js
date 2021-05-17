@@ -1,6 +1,15 @@
+var siteUrl =    window.location.origin; // "https://local.ovlg.com"; //
+var calcBase =  "/calculators"; // ""; // 
+var pathname = window.location.pathname;
+var oldval = "";
+var queryString = window.location.search;
+var timeout = null;
+var cardIndex = 2;
+
 function ShowVideoList() {
     jQuery('#VideoLists').show();
 }
+
 function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL.split('&'),
@@ -16,7 +25,7 @@ function getUrlParameter(sParam) {
     }
 }
 
-function debtPayOffCalculator() {
+function debtPayOffCalculator() { 
    // $('#debtPayOffCalculator').submit(function (event) { //say green
         //var BoolError = 1;
         let patt = /^[0-9]*\.?[0-9]+$/;
@@ -24,8 +33,9 @@ function debtPayOffCalculator() {
         //let TotalDebtResult = patt.test(TotalDebt);
 
         let MonthlyPaymentVal = $('#totalMonthlyPayment').val();
+      
         //let  MonthlyPaymentResult = patt.test(MonthlyPaymentVal);
-
+        
         if (TotalDebt != "") {
             if (MonthlyPaymentVal != '') {
                 var formData = {
@@ -34,7 +44,7 @@ function debtPayOffCalculator() {
                 };
                 $.ajax({
                     type: 'POST',
-                    url:  window.location.origin + '/calculators/debt-payoff-calculator', // https://local.ovlg.com
+                    url:  siteUrl + '/calc/debt-payoff-calculator',
                     data: formData,
                     crossDomain: true,
                     dataType: 'html',
@@ -44,8 +54,8 @@ function debtPayOffCalculator() {
                             $('#getData').html(data);
                         } else {
                             window.history.pushState({
-                                path: '/calculators/debt-payoff.html.html'
-                            }, '', '/calculators/debt-payoff.html?step=2');
+                                path: calcBase+'/debt-payoff.html.html'
+                            }, '', calcBase+'/debt-payoff.html?step=2');
                             $('#details_you_need_to_give').hide();
                             $('#intro_text').hide();
                             $('#First_Step').removeAttr('disabled', 'disabled');
@@ -94,8 +104,8 @@ function initDebtPayOffCalculatorStep2() {
 
 
         window.history.pushState({
-            path: '/calculators/debt-payoff-new.html'
-        }, '', '/calculators/debt-payoff-new.html?step=1');
+            path: calcBase+'/debt-payoff-new.html'
+        }, '', calcBase+'/debt-payoff-new.html?step=1');
     });
     $('#gotostep3').click(function () {
         $("#First_Step").removeAttr("disabled", "disabled");
@@ -108,8 +118,8 @@ function initDebtPayOffCalculatorStep2() {
 
         $('#SecondStep').hide();
         window.history.pushState({
-            path: '/calculators/debt-payoff.html.html'
-        }, '', '/calculators/debt-payoff.html?step=3');
+            path: calcBase+'/debt-payoff.html.html'
+        }, '', calcBase+'/debt-payoff.html?step=3');
         $('#ThirdStep').show();
         get_the_form();
     });
@@ -118,7 +128,7 @@ function initDebtPayOffCalculatorStep2() {
 function get_the_form() {
     $.ajax({
         type: 'GET',
-        url: window.location.origin + '/calculator/debt-payoff-calculator-signup', // https://local.ovlg.com
+        url: siteUrl + '/calculator/debt-payoff-calculator-signup',
         dataType: 'html',
         encode: true,
         success: function (data) {
@@ -162,7 +172,7 @@ function calculateIncomeRatio() {
     console.log(999);
     $.ajax({
         type: 'POST',
-        url: window.location.origin + '/calculators/debt-income-ratio', //https://local.ovlg.com
+        url: siteUrl + '/calc/debt-income-ratio',
         data: incomeOptions,
         dataType: 'html',
         encode: true,
@@ -224,7 +234,7 @@ function calculateIncomeRatio() {
     });
 
     $('#2nd-tab').on("click", "#getProfessionalHelp", function () {
-        window.location = window.location.origin + "/contact-us/help.html"
+        window.location = siteUrl + "/contact-us/help.html"
     });
 
     $("#DI-step-1").click(function () {
@@ -269,7 +279,7 @@ function calculateIncomeRatioTemplate() {
 
     $.ajax({
         type: 'POST',
-        url: window.location.origin + '/calculators/debt-income-ratio-template',
+        url: siteUrl + '/calculators/debt-income-ratio-template',
         data: incomeOptions,
         dataType: 'html',
         encode: true,
@@ -303,7 +313,7 @@ function calculateApr() {
 
     $.ajax({
         type: 'POST',
-        url: window.location.origin + '/calculators/debt-apr-calculators', // https://local.ovlg.com
+        url: siteUrl + '/calc/debt-apr-calculators',
         data: aprValue,
         crossDomain: true,
         dataType: 'html',
@@ -327,7 +337,7 @@ function CalculateCredits() {
     var Principal = 0.0;
     var Rate = calculateCreditAverage();
     var Installment = 0.0;
-    for (count = 1; count <= ii - 1; count++) {
+    for (count = 1; count <= cardIndex - 1; count++) {
         var calCredit = ($('#CreditCardBalance' + count).val() == "" || $('#CreditCardBalance' + count).val() == 0) ? 0 : $('#CreditCardBalance' + count).val()
         var calCard = ($('#CreditCardMonthlyPayments' + count).val() == "" || $('#CreditCardMonthlyPayments' + count).val() == 0) ? 0 : $('#CreditCardMonthlyPayments' + count).val();
         Principal += parseFloat(calCredit);
@@ -341,7 +351,7 @@ function CalculateCredits() {
 
     $.ajax({
         type: 'POST',
-        url: window.location.origin + '/calculators/credit-card-calculators',
+        url: siteUrl + '/calc/credit-card-calculators',
         data: cardValue,
         dataType: 'html',
         encode: true,
@@ -362,7 +372,7 @@ function calculateCreditAverage() {
     var totalAvg = 0;
     var totalSum = 0;
     var rate = 0;
-    for (var avg = 1; avg <= ii - 1; avg++) {
+    for (var avg = 1; avg <= cardIndex - 1; avg++) {
         if ($('#CreditCardInterestRate' + avg).val() != 0 && $('#CreditCardInterestRate' + avg).val() != "") {
             totalSum += parseFloat($('#CreditCardInterestRate' + avg).val());
             totalAvg++;
@@ -386,7 +396,7 @@ function page_on_load() {
 
     $.ajax({
         type: 'POST',
-        url: window.location.origin + '/calculators/debt-get-consolidation-types',
+        url: siteUrl + '/calc/debt-get-consolidation-types',
         data: onloadData,
         crossDomain: true,
         dataType: 'html',
@@ -447,7 +457,7 @@ function check_and_comp(event) {
     timeout = setTimeout(function () {
         $.ajax({
             type: 'POST',
-            url: window.location.origin + '/calculators/debt-get-consolidation-types',
+            url: siteUrl  + '/calculators/debt-get-consolidation-types',
             data: paymentData,
             crossDomain: true,
             dataType: 'html',
@@ -488,6 +498,65 @@ function changeMonth(){
         }
     }
 }
+
+function createCardPaymentRow(n) {
+    for (var r = 1; r <= n; r++) {
+        $("#t1").append('<tr><td align="center"><b>#' + cardIndex + 
+        '</b><div id="star' + cardIndex + 
+        '" style="text-align:center;color:red;float:left;"></div></td><td align="center"><input type="text" class="form-control" size="15" value="0" name="CreditCardBalance' + cardIndex + 
+        '" id="CreditCardBalance' + cardIndex + 
+        '"></td><td align="center"><input type="text" size="15" class="form-control" value="0" name="CreditCardInterestRate' + cardIndex + 
+        '" id="CreditCardInterestRate' + cardIndex + 
+        '"></td><td align="center"><input type="text" size="15" class="form-control" value="0" name="CreditCardMonthlyPayments' + cardIndex + 
+        '" id="CreditCardMonthlyPayments' + cardIndex + '"></td></tr>');
+        cardIndex++;
+    }
+}
+
+function fnGetCreditCardPaymentList() {
+
+    createCardPaymentRow(3);
+    $('#CreditCardBalance' + 1).attr("value", 5000);
+    $('#CreditCardInterestRate' + 1).attr("value", 14);
+    $('#CreditCardAnnualFees' + 1).attr("value", 35);
+    $('#CreditCardMonthlyPayments' + 1).attr("value", 158);
+
+    $('#CreditCardBalance' + 2).attr("value", 6500);
+    $('#CreditCardInterestRate' + 2).attr("value", 8);
+    $('#CreditCardAnnualFees' + 2).attr("value", 0);
+    $('#CreditCardMonthlyPayments' + 2).attr("value", 250);
+    CalculateCredits();
+
+    $('#addRows').click(function () {
+        var Optionvalues = $('#rowOpt').val();
+        createCardPaymentRow(Optionvalues);
+        $('#adLoan').hide();
+    });
+
+    $('#printAuth').click(function () {
+        var docToprint = document.getElementById('result');
+        newWin = window.open("");
+        newWin.document.write(docToprint.innerHTML);
+        newWin.print();
+        newWin.close();
+    });
+
+    //Debt-income-ratio Calculator JS Started
+
+    $('div').find('.unvisited').each(function () {
+        $('a[href$="' + $(this).attr("id") + '"]').addClass("inactiveLink");
+    });
+
+    $("a.selecthref").click(function () {
+        var status_id = $(this).attr('href').split('#');
+        var get_div_id = status_id[1];
+        if ($("#" + get_div_id).hasClass('unvisited')) {
+
+            return false;
+        }
+    });
+}
+
 
 $(document).ready(function () {
 
@@ -651,7 +720,7 @@ $(document).ready(function () {
         MonthsValue = $('#months').val();
         old_rates = $('#old_rates').val();
         SubmitValue = $('#Submit').val();
-        url = window.location.origin + "/calculators/debt-apr-calculators";
+        url = siteUrl + "/calculators/debt-apr-calculators";
         jQuery.post(
             url,
             { principal: PrincipalValue, rate: RateValue, AddCost: AddCostValue, months: MonthsValue, old_rates: old_rates },
@@ -677,8 +746,8 @@ $(document).ready(function () {
         $('#FirstStep').show();
         $('#backbutton').hide();
         window.history.pushState({
-            path: '/calculators/debt-payoff.html'
-        }, '', '/calculators/debt-payoff.html');
+            path: calcBase + '/debt-payoff.html'
+        }, '', calcBase+'/debt-payoff.html');
     });
 
     $(document).on('click','#Second_Step',function(e) {
@@ -697,8 +766,8 @@ $(document).ready(function () {
         $('#FirstStep').hide();
         $('#backbutton').show();
         window.history.pushState({
-            path: '/calculators/debt-payoff.html'
-        }, '', '/calculators/debt-payoff.html?step=2');
+            path: calcBase+'/debt-payoff.html'
+        }, '', calcBase+'/debt-payoff.html?step=2');
     });
 
     $(document).on('click','#Third_Step',function(e) {
@@ -717,27 +786,27 @@ $(document).ready(function () {
         $('#FirstStep').hide();
         $('#backbutton').hide();
         window.history.pushState({
-            path: '/calculators/debt-payoff.html'
-        }, '', '/calculators/debt-payoff.html?step=3');
+            path: calcBase+'/debt-payoff.html'
+        }, '', calcBase+'/debt-payoff.html?step=3');
         get_the_form();
     });
 
     $(document).on('keyup', "form#creditPayCalculator input[type=text]", function () { //say green
         var floatRegex = /^[+-]?([0-9]*[.])?[0-9]+/;
         $('#errormessage').html('');
-        for (j = 1; j <= ii - 1; j++) {
+        for (j = 1; j <= cardIndex - 1; j++) {
             $('#star' + j).html('');
         }
         var skip = new Array();
         var t = 0;
-        for (s = 3; s <= ii - 1; s++) {
+        for (s = 3; s <= cardIndex - 1; s++) {
             if (parseInt($('#CreditCardBalance' + s).val()) == 0 && parseInt($('#CreditCardInterestRate' + s).val()) == 0 && parseInt($('#CreditCardMonthlyPayments' + s).val()) == 0) {
                 skip[t++] = s;
             }
         }
         //    alert(skip);
         var isFuncRun = 0;
-        for (j = 1; j <= ii - 1; j++) {
+        for (j = 1; j <= cardIndex - 1; j++) {
 
             let crdBlnc = $('#CreditCardBalance' + j);
             let crdIntRt = $('#CreditCardInterestRate' + j);
@@ -800,7 +869,7 @@ $(document).ready(function () {
 
         $('#window').fadeOut('1000');
         if (newval != oldval) {
-            check_and_comp();
+            check_and_comp(e);
             oldval = newval;
         }
 
@@ -828,7 +897,7 @@ $(document).ready(function () {
 
         $('#window1').fadeOut('1000');
         if (newvalins != oldval) {
-            check_and_comp();
+            check_and_comp(e);
             oldval = newvalins;
         }
     });
@@ -836,7 +905,7 @@ $(document).ready(function () {
     $(document).on('keyup','#MonthlyPayment_new',function(e) {
         let monthPayVal = $('#MonthlyPayment_new').val();
         if (!isNaN(monthPayVal)) {
-            check_and_comp();
+            check_and_comp(e);
         } else {
             $('#MonthlyPayment_new').val('').focus();
         }
@@ -861,119 +930,45 @@ $(document).ready(function () {
         $("#old_rate").val(get_hidden_rates);
     });
 
-});
+    $(document).on('keydown','#debtPayOffCalculator',function(e) {
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+            (e.keyCode == 65 && e.ctrlKey === true) ||
 
-(function ($) {
+            (e.keyCode == 67 && e.ctrlKey === true) ||
 
-    $(document).ready(function () {
-        var queryString = window.location.search;
-        if (queryString == '?redirect-from=payday-loan') {
-            $('html, body').animate({
-                scrollTop: $('#intro_text').offset().top
-            }, 'fast');
+            (e.keyCode == 88 && e.ctrlKey === true) ||
+
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            return;
         }
-        var pathname = window.location.pathname;
-        if (pathname.includes('debt-payoff.html')) {
-            var query_string = getUrlParameter('p');
-            if (query_string == 'redirect_from_education') {
-                setTimeout(function () { $('#check_how_much_save').trigger('click'); }, 1);
-            }
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+            alert('Please enter Numbers only');
         }
-        var oldval = "";
-        if (pathname == '/calculators/debt-consolidation-types.html') {
+    });
+
+
+    if (queryString == '?redirect-from=payday-loan') {
+        $('html, body').animate({
+            scrollTop: $('#intro_text').offset().top
+        }, 'fast');
+    }
+    if (pathname.includes('debt-payoff.html')) {
+        var query_string = getUrlParameter('p');
+        if (query_string == 'redirect_from_education') {
+            setTimeout(function () { $('#check_how_much_save').trigger('click'); }, 1);
+        }
+    }
+    if (pathname ==  calcBase + '/debt-consolidation-types.html') {
+        setTimeout(function () { 
             page_on_load();
             oldval = document.getElementById('TotalDebt').value;
-        }
-
-        /*$("#debtPayOffCalculator").keydown(function (e) {
-            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-                (e.keyCode == 65 && e.ctrlKey === true) ||
-
-                (e.keyCode == 67 && e.ctrlKey === true) ||
-
-                (e.keyCode == 88 && e.ctrlKey === true) ||
-
-                (e.keyCode >= 35 && e.keyCode <= 39)) {
-                return;
-            }
-            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-                e.preventDefault();
-                alert('Please enter Numbers only');
-            }
-        });*/
-
-        var timeout = null;
-        
-        /// Script of Credit Card Calculator
-        /*
-                var ii = 2;
-                function createRow(n) {
-                    for (var r = 1; r <= n; r++) {
-                        $("#t1").append('<tr><td align="center"><b>#' + ii + '</b><div id="star' + ii + '" style="text-align:center;color:red;float:left;"></div></td><td align="center"><input type="text" class="form-control" size="15" value="0" name="CreditCardBalance' + ii + '" id="CreditCardBalance' + ii + '"></td><td align="center"><input type="text" size="15" class="form-control" value="0" name="CreditCardInterestRate' + ii + '" id="CreditCardInterestRate' + ii + '"></td><td align="center"><input type="text" size="15" class="form-control" value="0" name="CreditCardMonthlyPayments' + ii + '" id="CreditCardMonthlyPayments' + ii + '"></td></tr>');
-                        ii++;
-                    }
-                }
-
-                createRow(3);
-                $('#CreditCardBalance' + 1).attr("value", 5000);
-                $('#CreditCardInterestRate' + 1).attr("value", 14);
-                $('#CreditCardAnnualFees' + 1).attr("value", 35);
-                $('#CreditCardMonthlyPayments' + 1).attr("value", 158);
-
-                $('#CreditCardBalance' + 2).attr("value", 6500);
-                $('#CreditCardInterestRate' + 2).attr("value", 8);
-                $('#CreditCardAnnualFees' + 2).attr("value", 0);
-                $('#CreditCardMonthlyPayments' + 2).attr("value", 250);
-                CalculateCredits();
-
-                $('#addRows').click(function () {
-                    var Optionvalues = $('#rowOpt').val();
-                    createRow(Optionvalues);
-                    $('#adLoan').hide();
-                });
-
-                $('#printAuth').click(function () {
-                    var docToprint = document.getElementById('result');
-                    newWin = window.open("");
-                    newWin.document.write(docToprint.innerHTML);
-                    newWin.print();
-                    newWin.close();
-                });
-
-                //Debt-income-ratio Calculator JS Started
-
-                $('div').find('.unvisited').each(function () {
-                    $('a[href$="' + $(this).attr("id") + '"]').addClass("inactiveLink");
-                });
-
-                $("a.selecthref").click(function () {
-                    var status_id = $(this).attr('href').split('#');
-                    var get_div_id = status_id[1];
-                    if ($("#" + get_div_id).hasClass('unvisited')) {
-
-                        return false;
-                    }
-                });
-        */
-
-        // js function for https://local.ovlg.com/admin/banner-videos
-        jQuery('.videoUrl').click(function () {
-            var video_url = 'https://' + window.location.hostname + '/sites/all/themes/ovlg_bootstrap/ovlg/video/' + jQuery(this).text();
-            jQuery('#edit-video-url').val(video_url);
-            jQuery('#VideoLists').hide();
-            jQuery.ajax({
-                type: 'POST',
-                url: '/get-video-banner-image-ajax',
-                dataType: 'json',
-                data: {
-                    video_url: video_url,
-                },
-                success: function (data) {
-                    if (data.status == 'OK') {
-                        jQuery('#edit-thumb-img').val(data.thumbnail_url);
-                    }
-                },
-            });
-        });
-    });
-})(jQuery);
+         }, 1500);
+    }
+    if (pathname ==  calcBase + '/credit-card-payment.html') {
+        setTimeout(function () { 
+            console.log('credit-card-payment.html');
+            fnGetCreditCardPaymentList();
+         }, 1500);
+    }
+});
