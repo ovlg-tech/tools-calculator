@@ -949,14 +949,19 @@ $(document).ready(function () {
 
 
     if (queryString == '?redirect-from=payday-loan') {
-        $('html, body').animate({
+        /*$('html, body').animate({
             scrollTop: $('#intro_text').offset().top
-        }, 'fast');
+        }, 'fast');*/
+        jQuery("html, body").animate({ scrollTop: 0 }, 800);
     }
     if (pathname.includes('debt-payoff.html')) {
-        var query_string = getUrlParameter('p');
+        var query_string = getUrlParameter('redirect-from');
+        var monthly_pay = getUrlParameter('monthly_pay');
         if (query_string == 'redirect_from_education') {
-            setTimeout(function () { $('#check_how_much_save').trigger('click'); }, 1);
+            setTimeout(function () { $('#check_how_much_save').trigger('click'); }, 1000);
+        }
+        if (monthly_pay != '') {
+            setTimeout(function () { $('#totalMonthlyPayment').val(monthly_pay); }, 1500);
         }
     }
     if (pathname ==  calcBase + '/debt-consolidation-types.html') {
