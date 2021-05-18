@@ -128,7 +128,7 @@ function initDebtPayOffCalculatorStep2() {
 function get_the_form() {
     $.ajax({
         type: 'GET',
-        url: siteUrl + '/calculator/debt-payoff-calculator-signup',
+        url: siteUrl + '/calc/debt-payoff-calculator-signup',
         dataType: 'html',
         encode: true,
         success: function (data) {
@@ -279,7 +279,7 @@ function calculateIncomeRatioTemplate() {
 
     $.ajax({
         type: 'POST',
-        url: siteUrl + '/calculators/debt-income-ratio-template',
+        url: siteUrl + '/calc/debt-income-ratio-template',
         data: incomeOptions,
         dataType: 'html',
         encode: true,
@@ -457,7 +457,7 @@ function check_and_comp(event) {
     timeout = setTimeout(function () {
         $.ajax({
             type: 'POST',
-            url: siteUrl  + '/calculators/debt-get-consolidation-types',
+            url: siteUrl  + '/calc/debt-get-consolidation-types',
             data: paymentData,
             crossDomain: true,
             dataType: 'html',
