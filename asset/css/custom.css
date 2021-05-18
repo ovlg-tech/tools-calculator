@@ -122,6 +122,9 @@ h3, .header-h3 {
     font-size: 1.32em;
 }
 
+a:focus, a:hover {
+    text-decoration: none;
+}
 
 .stick, .width100, body {
     width: 100%;
