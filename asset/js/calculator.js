@@ -957,12 +957,21 @@ $(document).ready(function () {
     if (pathname.includes('debt-payoff.html')) {
         var query_string = getUrlParameter('redirect-from');
         var monthly_pay = getUrlParameter('monthly_pay');
+        var debtAmount = getUrlParameter('debtAmount');
         if (query_string == 'redirect_from_education') {
             setTimeout(function () { $('#check_how_much_save').trigger('click'); }, 1000);
         }
-        if (monthly_pay != '') {
+        if (monthly_pay != '' && debtAmount != '') {
+            setTimeout(function () { 
+                $('#totalMonthlyPayment').val(monthly_pay); 
+                $('#TotalDebt').val(debtAmount);
+                $('#check_how_much_save').trigger('click');
+            }, 1500);
+        }
+        else if (monthly_pay != '') {
             setTimeout(function () { $('#totalMonthlyPayment').val(monthly_pay); }, 1500);
         }
+        
     }
     if (pathname ==  calcBase + '/debt-consolidation-types.html') {
         setTimeout(function () { 
