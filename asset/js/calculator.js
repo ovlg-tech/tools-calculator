@@ -26,14 +26,13 @@ function getUrlParameter(sParam) {
 }
 
 function debtPayOffCalculator() { 
+    
    // $('#debtPayOffCalculator').submit(function (event) { //say green
         //var BoolError = 1;
         let patt = /^[0-9]*\.?[0-9]+$/;
         let TotalDebt = $('#TotalDebt').val();
         //let TotalDebtResult = patt.test(TotalDebt);
-
         let MonthlyPaymentVal = $('#totalMonthlyPayment').val();
-      
         //let  MonthlyPaymentResult = patt.test(MonthlyPaymentVal);
         
         if (TotalDebt != "") {
@@ -958,10 +957,14 @@ $(document).ready(function () {
         var query_string = getUrlParameter('redirect-from');
         var monthly_pay = getUrlParameter('monthly_pay');
         var debtAmount = getUrlParameter('debtAmount');
+
+       // console.log(monthly_pay, debtAmount);
+
         if (query_string == 'redirect_from_education') {
             setTimeout(function () { $('#check_how_much_save').trigger('click'); }, 1000);
         }
-        if (monthly_pay != '' && debtAmount != '') {
+
+        if ( (typeof monthly_pay !== 'undefined' && monthly_pay != '' ) && (typeof debtAmount !== 'undefined' && debtAmount != '' ) ) {
             setTimeout(function () { 
                 $('#totalMonthlyPayment').val(monthly_pay); 
                 $('#TotalDebt').val(debtAmount);
