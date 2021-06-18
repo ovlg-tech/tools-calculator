@@ -316,7 +316,7 @@ p {
     margin-bottom: 14px;
     padding-bottom: 0px;
     padding-top: 10px;
-    color: #4A1500;
+    color: #FFF;
     font-size: 0.9em;
     font-weight: 700;
     text-transform: uppercase;
@@ -517,6 +517,20 @@ form#search-block-form {
         font-size: 17px;
         line-height: 1.8em;
     }
+}
+.navCustomDark
+{
+background: #4A1500;
+}
+@media screen and (max-width: 600px) {
+.mobile_hide {
+display: none;
+}
+}
+@media screen and (max-width: 768px) {
+.mobile_hide {
+display: none;
+}
 }
 
 
