@@ -535,9 +535,21 @@ display: none;
 {
 font-size:180%;
 }
-.header-h1
+.header-h1, h1, .h1
 {
 font-size: 210%;
+}
+.header-h2, h2, .h2
+{
+    font-size: 180%;
+}
+.header-h3, h3, .h3
+{
+    font-size: 150%;
+}
+.header-h4, h4, .h4 
+{
+    font-size: 120%;
 }
 .ovlg-calculator-banner
 {
