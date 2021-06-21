@@ -531,6 +531,22 @@ display: none;
 .mobile_hide {
 display: none;
 }
+.h1-mobile
+{
+font-size:180%;
+}
+.header-h1
+{
+font-size: 210%;
+}
+.ovlg-calculator-banner
+{
+height: 200px;
+}
+}
+.icon-bar 
+{
+background: #4A1500 !important;
 }
 
 
