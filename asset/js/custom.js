@@ -35,6 +35,16 @@ $(function () {
 function Fnslideup() {
     jQuery("html, body").animate({ scrollTop: 0 }, 800);
 }
+function phoneMask() { 
+    var num =jQuery('#edit-phone').val().replace(/\D/g,''); 
+   var newnum= num.substring(0,3) + '-' + num.substring(3,6) + '-' + num.substring(6,9); 
+  
+  if(newnum=='--')
+  {
+    newnum='';
+  }
+  jQuery('#edit-phone').val(newnum);
+}
 
 /*
 $(function () {

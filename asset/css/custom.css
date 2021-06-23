@@ -537,19 +537,19 @@ font-size:180%;
 }
 .header-h1, h1, .h1
 {
-font-size: 210%;
+font-size: 180%;
 }
 .header-h2, h2, .h2
 {
-    font-size: 180%;
+    font-size: 150%;
 }
 .header-h3, h3, .h3
 {
-    font-size: 150%;
+    font-size: 120%;
 }
 .header-h4, h4, .h4 
 {
-    font-size: 120%;
+    font-size: 100%;
 }
 .ovlg-calculator-banner
 {
@@ -560,6 +560,64 @@ height: 200px;
 {
 background: #4A1500 !important;
 }
+ul.footerItem {list-style-type: none; margin: 0; padding: 0; }
+ul.footerItem li {display: inline-block; padding: 10px;}
+@media screen and (max-width:768px){ul.footerItem li {display: block;}}
+.common_sprite {
+    background-image: url(/sites/all/themes/ovlg_bootstrap/ovlg/images/common_sprite.png);
+    background-repeat: no-repeat;
+    background-position: no-repeat;
+    }
+    .calchamber_Member {
+    width: 151px;
+    height: 28px;
+    background-position: 0 -84px;
+    display: inline-block;
+    margin: 0 2%;
+    }
+    .calbar {
+    background-position: -154px -42px;
+    margin: 0 2%;
+    }
+    .calbar, .calbar_bw {
+    width: 89px;
+    height: 41px;
+    display: inline-block;
+    }
+    .common_sprite {
+    background-image: url(/sites/all/themes/ovlg_bootstrap/ovlg/images/common_sprite.png);
+    background-repeat: no-repeat;
+    background-position: no-repeat;
+    }
+    .DandB {
+    width: 180px;
+    height: 37px;
+    background-position: -155px 0;
+    }
+    .DandB, .authorize, .go_daddy {
+    margin: 0 2%;
+    display: inline-block;
+    }
+    .common_sprite {
+    background-image: url(/sites/all/themes/ovlg_bootstrap/ovlg/images/common_sprite.png);
+    background-repeat: no-repeat;
+    background-position: no-repeat;
+    }
+    .go_daddy {
+    width: 150px;
+    height: 78px;
+    background-position: 0 0;
+    }
+    .DandB, .authorize, .go_daddy {
+    margin: 0 2%;
+    display: inline-block;
+    }
+    .common_sprite {
+    background-image: url(/sites/all/themes/ovlg_bootstrap/ovlg/images/common_sprite.png);
+    background-repeat: no-repeat;
+    background-position: no-repeat;
+    }
+    
 
 
 
