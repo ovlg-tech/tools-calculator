@@ -584,11 +584,7 @@ ul.footerItem li {display: inline-block; padding: 10px;}
     height: 41px;
     display: inline-block;
     }
-    .common_sprite {
-    background-image: url(/sites/all/themes/ovlg_bootstrap/ovlg/images/common_sprite.png);
-    background-repeat: no-repeat;
-    background-position: no-repeat;
-    }
+    
     .DandB {
     width: 180px;
     height: 37px;
@@ -598,25 +594,13 @@ ul.footerItem li {display: inline-block; padding: 10px;}
     margin: 0 2%;
     display: inline-block;
     }
-    .common_sprite {
-    background-image: url(/sites/all/themes/ovlg_bootstrap/ovlg/images/common_sprite.png);
-    background-repeat: no-repeat;
-    background-position: no-repeat;
-    }
+   
     .go_daddy {
     width: 150px;
     height: 78px;
     background-position: 0 0;
     }
-    .DandB, .authorize, .go_daddy {
-    margin: 0 2%;
-    display: inline-block;
-    }
-    .common_sprite {
-    background-image: url(/sites/all/themes/ovlg_bootstrap/ovlg/images/common_sprite.png);
-    background-repeat: no-repeat;
-    background-position: no-repeat;
-    }
+   
     
 
 
